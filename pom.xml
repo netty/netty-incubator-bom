@@ -71,6 +71,7 @@
     <release.gpg.passphrase />
   </properties>
   <build>
+    <plugins>
       <plugin>
         <groupId>com.commsen.maven</groupId>
         <artifactId>bom-helper-maven-plugin</artifactId>
@@ -97,7 +98,7 @@
         <version>2.5.3</version>
         <configuration>
           <useReleaseProfile>false</useReleaseProfile>
-          <arguments>-P restricted-release,sonatype-oss-release -Dgpg.keyname=${release.gpg.keyname} -Dgpg.passphrase=${release.gpg.passphrase}</arguments>
+          <arguments>-Psonatype-oss-release -Dgpg.keyname=${release.gpg.keyname} -Dgpg.passphrase=${release.gpg.passphrase}</arguments>
           <autoVersionSubmodules>true</autoVersionSubmodules>
           <allowTimestampedSnapshots>false</allowTimestampedSnapshots>
           <tagNameFormat>${project.artifactId}-@{project.version}</tagNameFormat>
