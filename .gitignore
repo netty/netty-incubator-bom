@@ -1,0 +1,18 @@
+# Eclipse project files
+.project
+.classpath
+.settings
+
+# IntelliJ IDEA project files and directories
+*.iml
+*.ipr
+*.iws
+.idea/
+.shelf/
+
+# Build targets
+/target
+*/target
+
+# Mac-specific directory that no other operating system needs.
+.DS_Store
