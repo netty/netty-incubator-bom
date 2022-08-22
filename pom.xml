@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright 2020 The Netty Project
+  ~
+  ~ The Netty Project licenses this file to you under the Apache License,
+  ~ version 2.0 (the "License"); you may not use this file except in compliance
+  ~ with the License. You may obtain a copy of the License at:
+  ~
+  ~   https://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+  ~ WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+  ~ License for the specific language governing permissions and limitations
+  ~ under the License.
+  -->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.sonatype.oss</groupId>
+    <artifactId>oss-parent</artifactId>
+    <version>9</version>
+  </parent>
+
+  <groupId>io.netty.incubator</groupId>
+  <artifactId>netty-incubator-bom</artifactId>
+  <version>0.0.1.Final-SNAPSHOT</version>
+  <name>Netty/Incubator/BOM</name>
+  <packaging>pom</packaging>
+  <url>https://netty.io/</url>
+  <description>Netty Incubator Bill of Materials</description>
+
+  <organization>
+    <name>The Netty Project</name>
+    <url>https://netty.io/</url>
+  </organization>
+
+  <licenses>
+    <license>
+      <name>Apache License, Version 2.0</name>
+      <url>https://www.apache.org/licenses/LICENSE-2.0</url>
+    </license>
+  </licenses>
+  <inceptionYear>2022</inceptionYear>
+
+  <scm>
+    <url>https://github.com/netty/netty-incubator-bom</url>
+    <connection>scm:git:git://github.com/netty/netty-incubator-bom.git</connection>
+    <developerConnection>scm:git:ssh://git@github.com/netty/netty-incubator-bom.git</developerConnection>
+    <tag>HEAD</tag>
+  </scm>
+
+  <developers>
+    <developer>
+      <id>netty.io</id>
+      <name>The Netty Project Contributors</name>
+      <email>netty@googlegroups.com</email>
+      <url>https://netty.io/</url>
+      <organization>The Netty Project</organization>
+      <organizationUrl>https://netty.io/</organizationUrl>
+    </developer>
+  </developers>
+
+  <properties>
+    <netty.version>4.1.78.Final</netty.version>
+    <netty.build.version>30</netty.build.version>
+    <netty.quic.version>0.0.28.Final</netty.quic.version>
+    <netty.http3.version>0.0.12.Final</netty.http3.version>
+    <netty.io_uring.version>0.0.14.Final</netty.io_uring.version>
+    <release.gpg.keyname />
+    <release.gpg.passphrase />
+  </properties>
+  <build>
+      <plugin>
+        <groupId>com.commsen.maven</groupId>
+        <artifactId>bom-helper-maven-plugin</artifactId>
+        <version>0.4.0</version>
+        <goals>
+          <goal>resolve</goal>
+        </goals>
+      </plugin>
+
+      <plugin>
+        <groupId>org.sonatype.plugins</groupId>
+        <artifactId>nexus-staging-maven-plugin</artifactId>
+        <version>1.6.8</version>
+        <extensions>true</extensions>
+        <configuration>
+          <serverId>sonatype-nexus</serverId>
+          <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+          <!-- Automatically release the artifacts after the verification was complete -->
+          <autoReleaseAfterClose>true</autoReleaseAfterClose>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-release-plugin</artifactId>
+        <version>2.5.3</version>
+        <configuration>
+          <useReleaseProfile>false</useReleaseProfile>
+          <arguments>-P restricted-release,sonatype-oss-release -Dgpg.keyname=${release.gpg.keyname} -Dgpg.passphrase=${release.gpg.passphrase}</arguments>
+          <autoVersionSubmodules>true</autoVersionSubmodules>
+          <allowTimestampedSnapshots>false</allowTimestampedSnapshots>
+          <tagNameFormat>${project.artifactId}-@{project.version}</tagNameFormat>
+        </configuration>
+        <dependencies>
+          <dependency>
+            <groupId>org.apache.maven.scm</groupId>
+            <artifactId>maven-scm-api</artifactId>
+            <version>1.9.4</version>
+          </dependency>
+          <dependency>
+            <groupId>org.apache.maven.scm</groupId>
+            <artifactId>maven-scm-provider-gitexe</artifactId>
+            <version>1.9.4</version>
+          </dependency>
+        </dependencies>
+      </plugin>
+    </plugins>
+  </build>
+  <dependencyManagement>
+    <dependencies>
+      <!-- QUIC -->
+      <dependency>
+        <groupId>io.netty.incubator</groupId>
+        <artifactId>netty-incubator-codec-classes-quic</artifactId>
+        <version>${netty.quic.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.netty.incubator</groupId>
+        <artifactId>netty-incubator-codec-native-quic</artifactId>
+        <version>${netty.quic.version}</version>
+        <classifier>linux-x86_64</classifier>
+        <scope>runtime</scope>
+      </dependency>
+      <dependency>
+        <groupId>io.netty.incubator</groupId>
+        <artifactId>netty-incubator-codec-native-quic</artifactId>
+        <version>${netty.quic.version}</version>
+        <classifier>linux-aarch_64</classifier>
+        <scope>runtime</scope>
+      </dependency>
+      <dependency>
+        <groupId>io.netty.incubator</groupId>
+        <artifactId>netty-incubator-codec-native-quic</artifactId>
+        <version>${netty.quic.version}</version>
+        <classifier>osx-x86_64</classifier>
+        <scope>runtime</scope>
+      </dependency>
+      <dependency>
+        <groupId>io.netty.incubator</groupId>
+        <artifactId>netty-incubator-codec-native-quic</artifactId>
+        <version>${netty.quic.version}</version>
+        <classifier>osx-aarch_64</classifier>
+        <scope>runtime</scope>
+      </dependency>
+      <dependency>
+        <groupId>io.netty.incubator</groupId>
+        <artifactId>netty-incubator-codec-native-quic</artifactId>
+        <version>${netty.quic.version}</version>
+        <classifier>windows-x86_64</classifier>
+        <scope>runtime</scope>
+      </dependency>
+
+      <!-- HTTP/3 -->
+      <dependency>
+        <groupId>io.netty.incubator</groupId>
+        <artifactId>netty-incubator-codec-http3</artifactId>
+        <version>${netty.http3.version}</version>
+      </dependency>
+
+      <!-- IO_URING -->
+      <dependency>
+        <groupId>io.netty.incubator</groupId>
+        <artifactId>netty-incubator-transport-classes-io_uring</artifactId>
+        <version>${netty.io_uring.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.netty.incubator</groupId>
+        <artifactId>netty-incubator-transport-classes-io_uring</artifactId>
+        <version>${netty.io_uring.version}</version>
+        <classifier>linux-x86_64</classifier>
+        <scope>runtime</scope>
+      </dependency>
+      <dependency>
+        <groupId>io.netty.incubator</groupId>
+        <artifactId>netty-incubator-transport-classes-io_uring</artifactId>
+        <version>${netty.io_uring.version}</version>
+        <classifier>linux-aarch_64</classifier>
+        <scope>runtime</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+</project>
