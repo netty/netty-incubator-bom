@@ -64,7 +64,7 @@
   <properties>
     <netty.version>4.1.79.Final</netty.version>
     <netty.build.version>30</netty.build.version>
-    <netty.quic.version>0.0.28.Final</netty.quic.version>
+    <netty.quic.version>0.0.29.Final</netty.quic.version>
     <netty.http3.version>0.0.12.Final</netty.http3.version>
     <netty.io_uring.version>0.0.14.Final</netty.io_uring.version>
     <release.gpg.keyname />
