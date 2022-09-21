@@ -25,3 +25,10 @@ the 'license' directory of the distribution file, for the license terms of the
 components that this product depends on.
 
 -------------------------------------------------------------------------------
+
+This product contains the Maven wrapper scripts from 'Maven Wrapper', that provides an easy way to ensure a user has everything necessary to run the Maven build.
+
+  * LICENSE:
+    * license/LICENSE.mvn-wrapper.txt (Apache License 2.0)
+  * HOMEPAGE:
+    * https://github.com/takari/maven-wrapper
