@@ -24,7 +24,7 @@
 
   <groupId>io.netty.incubator</groupId>
   <artifactId>netty-incubator-bom</artifactId>
-  <version>0.0.6.Final</version>
+  <version>0.0.7.Final-SNAPSHOT</version>
   <name>Netty/Incubator/BOM</name>
   <packaging>pom</packaging>
   <url>https://netty.io/</url>
@@ -47,7 +47,7 @@
     <url>https://github.com/netty/netty-incubator-bom</url>
     <connection>scm:git:git://github.com/netty/netty-incubator-bom.git</connection>
     <developerConnection>scm:git:ssh://git@github.com/netty/netty-incubator-bom.git</developerConnection>
-    <tag>netty-incubator-bom-0.0.6.Final</tag>
+    <tag>HEAD</tag>
   </scm>
 
   <developers>
