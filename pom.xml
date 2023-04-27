@@ -65,7 +65,7 @@
     <netty.version>4.1.92.Final</netty.version>
     <netty.build.version>31</netty.build.version>
     <netty.quic.version>0.0.40.Final</netty.quic.version>
-    <netty.http3.version>0.0.17.Final</netty.http3.version>
+    <netty.http3.version>0.0.18.Final</netty.http3.version>
     <netty.io_uring.version>0.0.21.Final</netty.io_uring.version>
     <release.gpg.keyname />
     <release.gpg.passphrase />
