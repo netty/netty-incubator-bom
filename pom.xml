@@ -62,10 +62,10 @@
   </developers>
 
   <properties>
-    <netty.version>4.1.93.Final</netty.version>
+    <netty.version>4.1.97.Final</netty.version>
     <netty.build.version>31</netty.build.version>
-    <netty.quic.version>0.0.46.Final</netty.quic.version>
-    <netty.http3.version>0.0.18.Final</netty.http3.version>
+    <netty.quic.version>0.0.50.Final</netty.quic.version>
+    <netty.http3.version>0.0.20.Final</netty.http3.version>
     <netty.io_uring.version>0.0.21.Final</netty.io_uring.version>
     <release.gpg.keyname />
     <release.gpg.passphrase />
