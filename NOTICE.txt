@@ -31,4 +31,4 @@ This product contains the Maven wrapper scripts from 'Maven Wrapper', that provi
   * LICENSE:
     * license/LICENSE.mvn-wrapper.txt (Apache License 2.0)
   * HOMEPAGE:
-    * https://github.com/takari/maven-wrapper
+    * https://maven.apache.org/wrapper/
