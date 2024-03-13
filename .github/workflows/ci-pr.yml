@@ -32,14 +32,14 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Set up JDK 8
-        uses: actions/setup-java@v3
+        uses: actions/setup-java@v4
         with:
           java-version: '8'
           distribution: 'zulu'
 
       - run: mvn -B -ntp --file pom.xml clean package
 
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         if: ${{ failure() }}
         with:
           name: target
